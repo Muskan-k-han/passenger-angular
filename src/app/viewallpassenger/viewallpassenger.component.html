@@ -1,0 +1,31 @@
+<p>viewallpassenger works!</p>
+
+<div class="container">
+    <table class="table" >
+      <thead class="thead-light" style="margin-top: 500px;">
+        <tr>
+          <th scope="col">S.No</th>
+        <th>Passenger Id</th>
+        <th>User Id</th>
+        <th>Passenger Date</th>
+        <th>Ticket Cost</th>
+        <th>PNR Number</th>
+        <th>Sf Id</th>
+       </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let passenger of passenger">
+          <th scope="row">1</th>
+          <td>{{passenger.passengerId}}</td>
+          <td>{{passenger.userId}}</td>      
+          <td>{{passenger.passengerDate}}</td>
+          <td>{{passenger.ticketCost}}</td>
+          <td>{{passenger.pnrNumber}}</td>
+          <td>{{passenger.sfId}}</td>
+          <td><button type="button" class="btn btn-large btn-warning" (click)=removePassenger(passenger.passengerId)>Remove</button></td>
+  
+        </tr>
+      </tbody>
+    </table>
+  </div>

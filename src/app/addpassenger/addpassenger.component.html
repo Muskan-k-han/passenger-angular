@@ -1,0 +1,80 @@
+<p>addpassenger works!</p>
+
+<form #myform=ngForm (ngSubmit)="myform.valid &&  addPassenger(myform)">
+
+    
+    
+    
+    <div class="col-7">
+        <input type="number" name="userId" placeholder="User Id"  ngModel #userCtrl=ngModel class="form-control" >    
+    </div>
+    
+    <div *ngIf="userCtrl.errors!=null && userCtrl.errors.required" class="error">
+     User id is required
+    </div>
+    
+       <div class="col-7">
+        <input type="date" name="passengerDate" placeholder="Passenger date" ngModel #dateCtrl=ngModel class="form-control" >    
+    </div>
+    
+    <div *ngIf="dateCtrl.errors!=null && dateCtrl.errors.required" class="error">
+     Date is required
+    </div>
+    
+    <div class="col-7">
+        <input type="number" name="ticketCost" placeholder="ticket cost" ngModel #costCtrl=ngModel class="form-control" >    
+    </div>
+    
+    <div *ngIf="costCtrl.errors!=null && costCtrl.errors.required" class="error">
+     Date is required
+    </div>
+
+    <div class="col-7">
+        <input type="number" name="pnrNumber" placeholder="PNR Number" ngModel #pnrCtrl=ngModel class="form-control" >    
+    </div>
+    
+    <div *ngIf="pnrCtrl.errors!=null && pnrCtrl.errors.required" class="error">
+     Date is required
+    </div>
+
+    <div class="col-7">
+        <input type="number" name="sfId" placeholder="Sf ID" ngModel #sfidCtrl=ngModel class="form-control" >    
+    </div>
+    
+    <div *ngIf="sfidCtrl.errors!=null && sfidCtrl.errors.required" class="error">
+     Date is required
+    </div>
+
+    <div style="position:absolute; margin-left: 20px; margin-top: 10px;">
+    <input type="submit" value="Submit"  class="btn btn-primary">    
+    </div>
+    </form>
+        <br>
+        
+        <div class ="container" *ngIf="passenger!==undefined">
+         <h3>Booking Confirmed </h3>   
+         <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">S.No</th>
+                <th scope="col">Passenger Id</th>
+                <th scope="col">User Id</th>
+                <th scope="col">Passenger Date</th>
+                <th scope="col">Ticket Cost</th>
+                <th scope="col">PNR Number</th>
+                <th scope="col">Sf Id</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>{{passenger.bookingId}}</td>
+                <td>{{passenger.userId}}</td>      
+                <td>{{passenger.bookingDate}}</td>
+                <td>{{passenger.ticketCost}}</td>
+                <td>{{passenger.pnrNumber}}</td>
+                <td>{{passenger.sfId}}</td>
+              </tr>
+              </tbody>
+              </table>
+        </div>
